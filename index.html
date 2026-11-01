@@ -1,229 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDRIC SHOP | Gaming Store</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #080811;
-            color: white;
-            line-height: 1.6;
-        }
-
-        header {
-            text-align: center;
-            padding: 35px 15px;
-            background: linear-gradient(135deg, #17052d, #320867, #10051c);
-            border-bottom: 2px solid #a855f7;
-        }
-
-        header h1 {
-            color: #d8b4fe;
-            font-size: 32px;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            color: #ddd6fe;
-            margin-top: 8px;
-        }
-
-        .container {
-            width: 92%;
-            max-width: 900px;
-            margin: 25px auto;
-        }
-
-        .notice {
-            background: #171126;
-            border: 1px solid #7135a5;
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .notice strong {
-            color: #d8b4fe;
-        }
-
-        .section-title {
-            color: #c084fc;
-            margin: 25px 0 15px;
-            font-size: 23px;
-            border-left: 4px solid #a855f7;
-            padding-left: 10px;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 18px;
-        }
-
-        .card {
-            background: #12121f;
-            border: 1px solid #392052;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 5px 18px rgba(126, 34, 206, 0.12);
-        }
-
-        .card h3 {
-            color: #e9d5ff;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: #c084fc;
-            font-size: 27px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .details {
-            color: #c4c4d4;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .order-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(90deg, #7e22ce, #a855f7);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 9px;
-            margin-top: 12px;
-            transition: 0.2s;
-        }
-
-        .order-btn:hover {
-            background: linear-gradient(90deg, #9333ea, #c084fc);
-        }
-
-        .payment {
-            background: #12121f;
-            border: 1px solid #392052;
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 25px;
-        }
-
-        .payment h3 {
-            color: #d8b4fe;
-            margin-bottom: 10px;
-        }
-
-        .payment p {
-            color: #ddd6fe;
-            margin: 5px 0;
-        }
-
-        footer {
-            margin-top: 35px;
-            padding: 22px 12px;
-            text-align: center;
-            background: #10091a;
-            border-top: 1px solid #392052;
-            color: #aaa;
-            font-size: 13px;
-        }
-
-        footer strong {
-            color: #c084fc;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEDRIC SHOP | Gaming Store</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #0d0e12;
+      color: #e1e3e6;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .mobile-container {
+      width: 100%;
+      max-width: 480px;
+      background-color: #111217;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border-left: 1px solid #22252e;
+      border-right: 1px solid #22252e;
+      padding-bottom: 80px;
+    }
+    .header {
+      background-color: #16181f;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #22252e;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-box {
+      background: #f5c400;
+      color: #111217;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+    }
+    .nav-tabs {
+      display: flex;
+      background: #16181f;
+      border-bottom: 1px solid #22252e;
+      padding: 0 8px;
+    }
+    .nav-tab {
+      flex: 1;
+      padding: 12px 4px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8b92a5;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .nav-tab.active {
+      color: #f5c400;
+      border-bottom-color: #f5c400;
+    }
+    .content-area {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card {
+      background-color: #1a1c24;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #2a2e3d;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .option-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .option-btn {
+      background: #222530;
+      border: 1px solid #2f3445;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .option-btn.active {
+      border-color: #f5c400;
+      background: rgba(245, 196, 0, 0.08);
+    }
+    .price-tag {
+      font-weight: 700;
+      color: #f5c400;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #a0a6b8;
+    }
+    .summary-row.total {
+      border-top: 1px dashed #2f3445;
+      padding-top: 10px;
+      margin-top: 6px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .gcash-box {
+      background: #005ce6;
+      border-radius: 10px;
+      padding: 14px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .copy-btn {
+      background: #fff;
+      color: #005ce6;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .chat-btn {
+      background-color: #0084ff;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .btn-submit {
+      background: #f5c400;
+      color: #111217;
+      border: none;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      background: #111217;
+      border: 1px solid #2f3445;
+      border-radius: 8px;
+      color: #fff;
+      margin-top: 6px;
+      outline: none;
+    }
+  </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>💜 CEDRIC SHOP</h1>
-        <p>Your Trusted Gaming Shop</p>
-        <p>Keys • Pilot Service • Robux • Game Accounts</p>
-    </header>
+<div class="mobile-container">
+  <div class="header">
+    <div class="header-brand">
+      <div class="logo-box">C</div>
+      <div class="brand-title">CEDRIC SHOP</div>
+    </div>
+  </div>
 
-    <main class="container">
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot</div>
+    <div class="nav-tab" onclick="switchTab('key')">🔑 Key</div>
+    <div class="nav-tab" onclick="switchTab('robux')">💎 Robux</div>
+  </div>
 
-        <div class="notice">
-            <strong>📢 HOW TO ORDER</strong>
-            <p>Piliin ang produkto at pindutin ang ORDER button.</p>
-            <p>Direkta kang mapupunta sa Messenger para makipag-usap sa seller.</p>
+  <div class="content-area">
+    <!-- PILOT SERVICE TAB -->
+    <div id="tab-pilot">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-gamepad" style="color:#f5c400;"></i> Select Pilot Package</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption('pilot', 50, '1 Day Pilot')">
+            <span>1 Day Pilot</span>
+            <span class="price-tag">₱50.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('pilot', 100, '3 Days Pilot')">
+            <span>3 Days Pilot</span>
+            <span class="price-tag">₱100.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('pilot', 0, 'Unlimited Egg (Divine & Eternal Only)')">
+            <span>Unlimited Egg (Divine & Eternal Only)</span>
+            <span class="price-tag">Request Chat</span>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <h2 class="section-title">🔑 KEY SHOP</h2>
-
-        <div class="products">
-
-            <div class="card">
-                <h3>1 DAY KEY</h3>
-                <p class="details">Original Price: ₱10</p>
-                <p class="details">GCash Cash-out Fee: ₱5</p>
-                <p class="price">₱15</p>
-                <p class="details">Total with cash-out fee</p>
-
-                <a class="order-btn"
-                   href="https://m.me/cedric.coros.2024"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    ORDER 1 DAY KEY
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>2 DAYS KEY</h3>
-                <p class="details">Original Price: ₱20</p>
-                <p class="details">GCash Cash-out Fee: ₱5</p>
-                <p class="price">₱25</p>
-                <p class="details">Total with cash-out fee</p>
-
-                <a class="order-btn"
-                   href="https://m.me/cedric.coros.2024"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    ORDER 2 DAYS KEY
-                </a>
-            </div>
-
+    <!-- KEY SERVICE TAB -->
+    <div id="tab-key" style="display:none;">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-key" style="color:#f5c400;"></i> Select Bigfroot Key</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption('key', 10, '1 Day Key')">
+            <span>1 Day Key</span>
+            <span class="price-tag">₱10.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('key', 20, '2 Days Key')">
+            <span>2 Days Key</span>
+            <span class="price-tag">₱20.00</span>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <h2 class="section-title">🎮 OTHER SERVICES</h2>
+    <!-- ROBUX SERVICE TAB -->
+    <div id="tab-robux" style="display:none;">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-coins" style="color:#f5c400;"></i> Robux Sales</div>
+        <p style="font-size: 13px; color:#a0a6b8; margin-bottom: 10px;">PM directly on Facebook Messenger for available stock and custom rates.</p>
+        <a href="https://m.me/cedric.coros.2024" target="_blank" class="chat-btn">
+          <i class="fa-brands fa-facebook-messenger"></i> Inquire Robux Rates
+        </a>
+      </div>
+    </div>
 
-        <div class="products">
+    <!-- PAYMENT DETAILS & COMPUTATION -->
+    <div class="card" id="payment-summary-card">
+      <div class="card-title"><i class="fa-solid fa-receipt" style="color:#f5c400;"></i> Payment Breakdown</div>
+      <div class="summary-row">
+        <span>Selected Service:</span>
+        <span id="selected-name" style="color:#fff; font-weight:600;">1 Day Pilot</span>
+      </div>
+      <div class="summary-row">
+        <span>Base Price:</span>
+        <span id="base-price">₱50.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Service Charge / Fee:</span>
+        <span>₱5.00</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total Amount:</span>
+        <span id="total-price" style="color:#f5c400;">₱55.00</span>
+      </div>
+    </div>
 
-            <div class="card">
-                <h3>⚡ PILOT SERVICE</h3>
-                <p class="price">₱100</p>
-                <p class="details">3 Days Pilot Service</p>
+    <!-- GCASH SECTION -->
+    <div class="card" id="gcash-card">
+      <div class="card-title"><i class="fa-solid fa-wallet" style="color:#005ce6;"></i> GCash Payment</div>
+      <div class="gcash-box">
+        <div style="font-size: 12px; opacity:0.8;">GCash Number</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+          <span style="font-size:18px; font-weight:800; letter-spacing:1px;" id="gcash-num">09XX XXX XXXX</span>
+          <button class="copy-btn" onclick="copyGCash()">COPY</button>
+        </div>
+      </div>
+      
+      <label style="font-size:12px; color:#a0a6b8;">GCash Reference Number:</label>
+      <input type="text" id="ref-num" placeholder="Enter 13-digit Ref No.">
 
-                <a class="order-btn"
-                   href="https://m.me/cedric.coros.2024"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    ORDER PILOT SERVICE
-                </a>
-            </div>
+      <button class="btn-submit" onclick="submitOrder()">Confirm & Notify Seller</button>
+      <a href="https://m.me/cedric.coros.2024" target="_blank" class="chat-btn">
+        <i class="fa-brands fa-facebook-messenger"></i> Direct Private Chat
+      </a>
+    </div>
+  </div>
+</div>
 
-            <div class="card">
-                <h3>💎 ROBUX</h3>
-                <p class="price">PM FOR PRICE</p>
-                <p class="details">Message the seller for prices and availability.</p>
+<script>
+  let currentService = 'pilot';
+  let selectedPrice = 50;
+  let selectedName = '1 Day Pilot';
+  const fee = 5;
 
-                <a class="order-btn"
-                   href="https://m.me/cedric.coros.2024"
-                   target="_blank"
-                   rel
+  function switchTab(tab) {
+    currentService = tab;
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('[id^="tab-"]').forEach(d => d.style.display = 'none');
+    
+    if (tab === 'pilot') {
+      document.querySelectorAll('.nav-tab')[0].classList.add('active');
+      document.getElementById('tab-pilot').style.display = 'block';
+      document.getElementById('payment-summary-card').style.display = 'block';
+      document.getElementById('gcash-card').style.display = 'block';
+      selectOption('pilot', 50, '1 Day Pilot');
+    } else if (tab === 'key') {
+      document.querySelectorAll('.nav-tab')[1].classList.add('active');
+      document.getElementById('tab-key').style.display = 'block';
+      document.getElementById('payment-summary-card').style.display = 'block';
+      document.getElementById('gcash-card').style.display = 'block';
+      selectOption('key', 10, '1 Day Key');
+    } else {
+      document.querySelectorAll('.nav-tab')[2].classList.add('active');
+      document.getElementById('tab-robux').style.display = 'block';
+      document.getElementById('payment-summary-card').style.display = 'none';
+      document.getElementById('gcash-card').style.display = 'none';
+    }
+  }
+
+  function selectOption(tab, price, name) {
+    selectedPrice = price;
+    selectedName = name;
+    
+    const tabEl = document.getElementById(`tab-${tab}`);
+    tabEl.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    document.getElementById('selected-name').innerText = name;
+    document.getElementById('base-price').innerText = price > 0 ? `₱${price}.00` : 'Custom';
+    document.getElementById('total-price').innerText = price > 0 ? `₱${price + fee}.00` : 'Inquire Chat';
+  }
+
+  function copyGCash() {
+    const num = document.getElementById('gcash-num').innerText;
+    navigator.clipboard.writeText(num);
+    alert('GCash number copied!');
+  }
+
+  function submitOrder() {
+    const ref = document.getElementById('ref-num').value;
+    if (!ref) {
+      alert('Please enter your GCash Reference Number.');
+      return;
+    }
+    const msg = `Hello! I placed an order for ${selectedName}. Ref No: ${ref}`;
+    window.open(`https://m.me/cedric.coros.2024?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+</script>
+</body>
+    </html>
+    
