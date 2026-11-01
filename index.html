@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEDRIC SHOP | Gaming Store</title>
+  <title>CEDRIC STORE | Gaming & Automation Store</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -13,7 +13,9 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
     body {
-      background-color: #0d0e12;
+      background: linear-gradient(rgba(13, 14, 18, 0.88), rgba(13, 14, 18, 0.88)), 
+                  url('1000019342.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #e1e3e6;
       display: flex;
       justify-content: center;
@@ -22,22 +24,24 @@
     .mobile-container {
       width: 100%;
       max-width: 480px;
-      background-color: #111217;
+      background-color: rgba(17, 18, 23, 0.94);
+      backdrop-filter: blur(8px);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       position: relative;
-      border-left: 1px solid #22252e;
-      border-right: 1px solid #22252e;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
       padding-bottom: 80px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
     .header {
-      background-color: #16181f;
+      background-color: rgba(22, 24, 31, 0.95);
       padding: 14px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #22252e;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -64,17 +68,34 @@
       font-size: 16px;
       color: #fff;
     }
+    .announcement-bar {
+      background: rgba(245, 196, 0, 0.15);
+      border-bottom: 1px solid rgba(245, 196, 0, 0.3);
+      padding: 8px 12px;
+      font-size: 12px;
+      color: #f5c400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
     .nav-tabs {
       display: flex;
-      background: #16181f;
-      border-bottom: 1px solid #22252e;
-      padding: 0 8px;
+      background: rgba(22, 24, 31, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
     }
     .nav-tab {
       flex: 1;
-      padding: 12px 4px;
+      min-width: 90px;
+      padding: 12px 6px;
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: #8b92a5;
       cursor: pointer;
@@ -92,10 +113,11 @@
       gap: 16px;
     }
     .card {
-      background-color: #1a1c24;
+      background-color: rgba(26, 28, 36, 0.9);
       border-radius: 12px;
       padding: 16px;
-      border: 1px solid #2a2e3d;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
     }
     .card-title {
       font-size: 15px;
@@ -112,8 +134,8 @@
       gap: 8px;
     }
     .option-btn {
-      background: #222530;
-      border: 1px solid #2f3445;
+      background: rgba(34, 37, 48, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       padding: 12px;
       display: flex;
@@ -126,7 +148,7 @@
     }
     .option-btn.active {
       border-color: #f5c400;
-      background: rgba(245, 196, 0, 0.08);
+      background: rgba(245, 196, 0, 0.15);
     }
     .price-tag {
       font-weight: 700;
@@ -140,29 +162,18 @@
       color: #a0a6b8;
     }
     .summary-row.total {
-      border-top: 1px dashed #2f3445;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
       padding-top: 10px;
       margin-top: 6px;
       color: #fff;
       font-weight: 700;
       font-size: 16px;
     }
-    .gcash-box {
-      background: #005ce6;
-      border-radius: 10px;
-      padding: 14px;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-    .copy-btn {
-      background: #fff;
-      color: #005ce6;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
     }
     .chat-btn {
       background-color: #0084ff;
@@ -175,31 +186,47 @@
       padding: 14px;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 14px;
       text-align: center;
-      margin-top: 8px;
     }
-    .btn-submit {
-      background: #f5c400;
-      color: #111217;
-      border: none;
-      width: 100%;
-      padding: 14px;
+    .discord-btn {
+      background-color: #5865F2;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 15px;
-      cursor: pointer;
-      margin-top: 10px;
+      font-size: 13px;
+      text-align: center;
     }
     input {
       width: 100%;
       padding: 12px;
-      background: #111217;
-      border: 1px solid #2f3445;
+      background: rgba(17, 18, 23, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 8px;
       color: #fff;
       margin-top: 6px;
       outline: none;
+      font-size: 14px;
+    }
+    .badge-bar {
+      display: flex;
+      justify-content: space-around;
+      font-size: 11px;
+      color: #8b92a5;
+      padding: 10px 0 0 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 12px;
+    }
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
   </style>
 </head>
@@ -209,14 +236,20 @@
   <div class="header">
     <div class="header-brand">
       <div class="logo-box">C</div>
-      <div class="brand-title">CEDRIC SHOP</div>
+      <div class="brand-title">CEDRIC STORE</div>
     </div>
+  </div>
+
+  <div class="announcement-bar">
+    <i class="fa-solid fa-bullhorn"></i> ⚡ Account Seller, MM Service & Fast Delivery!
   </div>
 
   <div class="nav-tabs">
     <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot</div>
     <div class="nav-tab" onclick="switchTab('key')">🔑 Key</div>
     <div class="nav-tab" onclick="switchTab('robux')">💎 Robux</div>
+    <div class="nav-tab" onclick="switchTab('redfinger')">📱 Redfinger</div>
+    <div class="nav-tab" onclick="switchTab('script')">📜 Script Hub</div>
   </div>
 
   <div class="content-area">
@@ -233,6 +266,10 @@
             <span>3 Days Pilot</span>
             <span class="price-tag">₱100.00</span>
           </div>
+          <div class="option-btn" onclick="selectOption('pilot', 200, '7 Days Pilot (Weekly)')">
+            <span>7 Days Pilot (Weekly)</span>
+            <span class="price-tag">₱200.00</span>
+          </div>
           <div class="option-btn" onclick="selectOption('pilot', 0, 'Unlimited Egg (Divine & Eternal Only)')">
             <span>Unlimited Egg (Divine & Eternal Only)</span>
             <span class="price-tag">Request Chat</span>
@@ -244,15 +281,23 @@
     <!-- KEY SERVICE TAB -->
     <div id="tab-key" style="display:none;">
       <div class="card">
-        <div class="card-title"><i class="fa-solid fa-key" style="color:#f5c400;"></i> Select Bigfroot Key</div>
+        <div class="card-title"><i class="fa-solid fa-key" style="color:#f5c400;"></i> Select Script Key</div>
         <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption('key', 10, '1 Day Key')">
+          <div class="option-btn active" onclick="selectOption('key', 10, '1 Day Key Access')">
             <span>1 Day Key</span>
             <span class="price-tag">₱10.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption('key', 20, '2 Days Key')">
+          <div class="option-btn" onclick="selectOption('key', 20, '2 Days Key Access')">
             <span>2 Days Key</span>
             <span class="price-tag">₱20.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('key', 50, '7 Days Key (Weekly)')">
+            <span>7 Days Key</span>
+            <span class="price-tag">₱50.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('key', 150, 'Lifetime Key VIP Access')">
+            <span>Lifetime VIP Access</span>
+            <span class="price-tag">₱150.00</span>
           </div>
         </div>
       </div>
@@ -261,17 +306,72 @@
     <!-- ROBUX SERVICE TAB -->
     <div id="tab-robux" style="display:none;">
       <div class="card">
-        <div class="card-title"><i class="fa-solid fa-coins" style="color:#f5c400;"></i> Robux Sales</div>
-        <p style="font-size: 13px; color:#a0a6b8; margin-bottom: 10px;">PM directly on Facebook Messenger for available stock and custom rates.</p>
-        <a href="https://m.me/cedric.coros.2024" target="_blank" class="chat-btn">
-          <i class="fa-brands fa-facebook-messenger"></i> Inquire Robux Rates
-        </a>
+        <div class="card-title"><i class="fa-solid fa-coins" style="color:#f5c400;"></i> Robux Packages</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption('robux', 60, '100 Robux')">
+            <span>100 Robux</span>
+            <span class="price-tag">₱60.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('robux', 280, '500 Robux')">
+            <span>500 Robux</span>
+            <span class="price-tag">₱280.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('robux', 550, '1,000 Robux')">
+            <span>1,000 Robux</span>
+            <span class="price-tag">₱550.00</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- PAYMENT DETAILS & COMPUTATION -->
+    <!-- REDFINGER CLOUD TAB -->
+    <div id="tab-redfinger" style="display:none;">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-mobile-screen-button" style="color:#f5c400;"></i> Redfinger Cloud Phone Rental</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption('redfinger', 35, 'Redfinger 1 Day Access Code')">
+            <span>1 Day Operational Code</span>
+            <span class="price-tag">₱35.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('redfinger', 180, 'Redfinger 7 Days Access Code')">
+            <span>7 Days Operational Code</span>
+            <span class="price-tag">₱180.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('redfinger', 650, 'Redfinger 30 Days Monthly Rental')">
+            <span>30 Days Monthly Rental</span>
+            <span class="price-tag">₱650.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT HUB TAB -->
+    <div id="tab-script" style="display:none;">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-code" style="color:#f5c400;"></i> Script Zone Hub Access</div>
+        <p style="font-size: 13px; color:#a0a6b8; margin-bottom: 12px;">Get exclusive premium scripts & auto-farm tools tailored for mobile execution.</p>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption('script', 30, 'Script Zone Hub - Basic Script')">
+            <span>Basic Auto-Farm Script</span>
+            <span class="price-tag">₱30.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption('script', 80, 'Script Zone Hub - Full Suite')">
+            <span>Full Automation Suite</span>
+            <span class="price-tag">₱80.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEM DETAILS & COMPUTATION -->
     <div class="card" id="payment-summary-card">
-      <div class="card-title"><i class="fa-solid fa-receipt" style="color:#f5c400;"></i> Payment Breakdown</div>
+      <div class="card-title"><i class="fa-solid fa-receipt" style="color:#f5c400;"></i> Order Summary</div>
+      
+      <div style="margin-bottom: 12px;">
+        <label style="font-size: 12px; color:#a0a6b8; display:block; margin-bottom:4px;">Item / Account / Details to Buy:</label>
+        <input type="text" id="item-details" placeholder="e.g. Pet name, Account ID, or Specific Request">
+      </div>
+
       <div class="summary-row">
         <span>Selected Service:</span>
         <span id="selected-name" style="color:#fff; font-weight:600;">1 Day Pilot</span>
@@ -288,26 +388,18 @@
         <span>Total Amount:</span>
         <span id="total-price" style="color:#f5c400;">₱55.00</span>
       </div>
-    </div>
 
-    <!-- GCASH SECTION -->
-    <div class="card" id="gcash-card">
-      <div class="card-title"><i class="fa-solid fa-wallet" style="color:#005ce6;"></i> GCash Payment</div>
-      <div class="gcash-box">
-        <div style="font-size: 12px; opacity:0.8;">GCash Number</div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
-          <span style="font-size:18px; font-weight:800; letter-spacing:1px;" id="gcash-num">09XX XXX XXXX</span>
-          <button class="copy-btn" onclick="copyGCash()">COPY</button>
-        </div>
+      <div class="social-grid">
+        <a href="javascript:void(0);" onclick="submitOrder()" class="chat-btn">
+          <i class="fa-brands fa-facebook-messenger"></i> Send Order via Messenger
+        </a>
       </div>
-      
-      <label style="font-size:12px; color:#a0a6b8;">GCash Reference Number:</label>
-      <input type="text" id="ref-num" placeholder="Enter 13-digit Ref No.">
 
-      <button class="btn-submit" onclick="submitOrder()">Confirm & Notify Seller</button>
-      <a href="https://m.me/cedric.coros.2024" target="_blank" class="chat-btn">
-        <i class="fa-brands fa-facebook-messenger"></i> Direct Private Chat
-      </a>
+      <div class="badge-bar">
+        <div class="badge-item"><i class="fa-solid fa-shield-halved" style="color:#f5c400;"></i> 100% Secure</div>
+        <div class="badge-item"><i class="fa-solid fa-bolt" style="color:#f5c400;"></i> Fast Process</div>
+        <div class="badge-item"><i class="fa-solid fa-headset" style="color:#f5c400;"></i> MM Service</div>
+      </div>
     </div>
   </div>
 </div>
@@ -323,23 +415,27 @@
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('[id^="tab-"]').forEach(d => d.style.display = 'none');
     
+    const tabIndexMap = {
+      'pilot': 0,
+      'key': 1,
+      'robux': 2,
+      'redfinger': 3,
+      'script': 4
+    };
+
+    document.querySelectorAll('.nav-tab')[tabIndexMap[tab]].classList.add('active');
+    document.getElementById(`tab-${tab}`).style.display = 'block';
+    
     if (tab === 'pilot') {
-      document.querySelectorAll('.nav-tab')[0].classList.add('active');
-      document.getElementById('tab-pilot').style.display = 'block';
-      document.getElementById('payment-summary-card').style.display = 'block';
-      document.getElementById('gcash-card').style.display = 'block';
       selectOption('pilot', 50, '1 Day Pilot');
     } else if (tab === 'key') {
-      document.querySelectorAll('.nav-tab')[1].classList.add('active');
-      document.getElementById('tab-key').style.display = 'block';
-      document.getElementById('payment-summary-card').style.display = 'block';
-      document.getElementById('gcash-card').style.display = 'block';
-      selectOption('key', 10, '1 Day Key');
-    } else {
-      document.querySelectorAll('.nav-tab')[2].classList.add('active');
-      document.getElementById('tab-robux').style.display = 'block';
-      document.getElementById('payment-summary-card').style.display = 'none';
-      document.getElementById('gcash-card').style.display = 'none';
+      selectOption('key', 10, '1 Day Key Access');
+    } else if (tab === 'robux') {
+      selectOption('robux', 60, '100 Robux');
+    } else if (tab === 'redfinger') {
+      selectOption('redfinger', 35, 'Redfinger 1 Day Access Code');
+    } else if (tab === 'script') {
+      selectOption('script', 30, 'Script Zone Hub - Basic Script');
     }
   }
 
@@ -349,29 +445,24 @@
     
     const tabEl = document.getElementById(`tab-${tab}`);
     tabEl.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
-    event.currentTarget.classList.add('active');
+    if(event && event.currentTarget) {
+      event.currentTarget.classList.add('active');
+    } else {
+      tabEl.querySelector('.option-btn').classList.add('active');
+    }
 
     document.getElementById('selected-name').innerText = name;
     document.getElementById('base-price').innerText = price > 0 ? `₱${price}.00` : 'Custom';
     document.getElementById('total-price').innerText = price > 0 ? `₱${price + fee}.00` : 'Inquire Chat';
   }
 
-  function copyGCash() {
-    const num = document.getElementById('gcash-num').innerText;
-    navigator.clipboard.writeText(num);
-    alert('GCash number copied!');
-  }
-
   function submitOrder() {
-    const ref = document.getElementById('ref-num').value;
-    if (!ref) {
-      alert('Please enter your GCash Reference Number.');
-      return;
-    }
-    const msg = `Hello! I placed an order for ${selectedName}. Ref No: ${ref}`;
+    const details = document.getElementById('item-details').value || 'None specified';
+    const total = selectedPrice > 0 ? `₱${selectedPrice + fee}.00` : 'Inquire Chat';
+    const msg = `Hello Boss Cedric! I want to order:\n- Package: ${selectedName}\n- Item/Details: ${details}\n- Total: ${total}`;
     window.open(`https://m.me/cedric.coros.2024?text=${encodeURIComponent(msg)}`, '_blank');
   }
 </script>
 </body>
-    </html>
-    
+              </html>
+              
