@@ -184,16 +184,6 @@
       color: #fff;
       margin-bottom: 12px;
     }
-    .copy-btn {
-      background: #fff;
-      color: #005ce6;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
     .chat-btn {
       background-color: #0084ff;
       color: #fff;
@@ -325,20 +315,19 @@
 
     <!-- GCASH & MESSENGER SECTION -->
     <div class="card" id="gcash-card">
-      <div class="card-title"><i class="fa-solid fa-wallet" style="color:#005ce6;"></i> GCash Payment</div>
+      <div class="card-title"><i class="fa-solid fa-wallet" style="color:#005ce6;"></i> Payment & Order Confirmation</div>
       <div class="gcash-box">
-        <div style="font-size: 12px; opacity:0.8;">GCash Account Number</div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
-          <span style="font-size:18px; font-weight:800; letter-spacing:1px;" id="gcash-num">09XX XXX XXXX</span>
-          <button class="copy-btn" onclick="copyGCash()">COPY</button>
+        <div style="font-size: 12px; opacity:0.8;">GCash Payment Details</div>
+        <div style="font-size:16px; font-weight:700; margin-top:4px;">
+          Ask Seller via Messenger
         </div>
       </div>
       
-      <label style="font-size:12px; color:#a0a6b8;">GCash Reference Number:</label>
-      <input type="text" id="ref-num" placeholder="Enter 13-digit Ref No.">
+      <label style="font-size:12px; color:#a0a6b8;">GCash Reference Number (Optional):</label>
+      <input type="text" id="ref-num" placeholder="Enter Ref No. if paid">
 
-      <button class="btn-submit" onclick="submitOrder()">Confirm & Notify Seller</button>
-      <a href="https://www.facebook.com/share/1Je9cpwiq8/" target="_blank" class="chat-btn">
+      <button class="btn-submit" onclick="submitOrder()">Confirm & Send Order via Messenger</button>
+      <a href="https://m.me/cedric.coros.2024" target="_blank" class="chat-btn">
         <i class="fa-brands fa-facebook-messenger"></i> Direct Private Chat
       </a>
     </div>
@@ -351,7 +340,7 @@
   let selectedName = '1 Day Pilot';
   let hasAddon = false;
   const addonPrice = 15;
-  const fbProfileUrl = 'https://www.facebook.com/share/1Je9cpwiq8/';
+  const username = 'cedric.coros.2024';
 
   function updateSummary() {
     let total = selectedPrice + (hasAddon ? addonPrice : 0);
@@ -412,20 +401,21 @@
     updateSummary();
   }
 
-  function copyGCash() {
-    const num = document.getElementById('gcash-num').innerText;
-    navigator.clipboard.writeText(num);
-    alert('GCash number copied to clipboard!');
-  }
-
   function submitOrder() {
-    const ref = document.getElementById('ref-num').value.trim();
-    if (!ref) {
-      alert('Please enter your GCash Reference Number first.');
-      return;
-    }
+    let total = selectedPrice > 0 ? `₱${selectedPrice + (hasAddon ? addonPrice : 0)}.00` : 'Request Chat';
+    if (selectedPrice === 0 && hasAddon) total = `₱${addonPrice}.00 (Request Chat)`;
 
-    window.open(fbProfileUrl, '_blank');
+    let addonText = hasAddon ? " + Automation Script Key" : "";
+    let refNum = document.getElementById('ref-num').value.trim();
+    
+    let message = `Hello Boss! Gusto ko pong umorder:\n\n• Service: ${selectedName}${addonText}\n• Total: ${total}`;
+    if (refNum) {
+      message += `\n• GCash Ref No: ${refNum}`;
+    }
+    
+    // Gagamitin ang Facebook Messenger URL scheme para madala agad ang message
+    let messengerUrl = `https://m.me/${username}?text=` + encodeURIComponent(message);
+    window.open(messengerUrl, '_blank');
   }
 </script>
 </body>
