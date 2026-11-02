@@ -83,20 +83,13 @@
       display: flex;
       background: rgba(22, 24, 31, 0.95);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: none;
-    }
-    .nav-tabs::-webkit-scrollbar {
-      display: none;
     }
     .nav-tab {
       flex: 1;
-      min-width: 90px;
-      padding: 12px 6px;
+      padding: 14px 6px;
       text-align: center;
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
       color: #8b92a5;
       cursor: pointer;
       border-bottom: 2px solid transparent;
@@ -154,6 +147,24 @@
       font-weight: 700;
       color: #f5c400;
     }
+    .checkbox-container {
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(17, 18, 23, 0.6);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #e1e3e6;
+    }
+    .checkbox-container input {
+      width: auto;
+      margin: 0;
+      cursor: pointer;
+    }
     .summary-row {
       display: flex;
       justify-content: space-between;
@@ -188,22 +199,11 @@
       font-weight: 700;
       font-size: 14px;
       text-align: center;
+      cursor: pointer;
+      border: none;
+      width: 100%;
     }
-    .discord-btn {
-      background-color: #5865F2;
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 13px;
-      text-align: center;
-    }
-    input {
+    input[type="text"] {
       width: 100%;
       padding: 12px;
       background: rgba(17, 18, 23, 0.8);
@@ -245,11 +245,8 @@
   </div>
 
   <div class="nav-tabs">
-    <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot</div>
-    <div class="nav-tab" onclick="switchTab('key')">🔑 Key</div>
-    <div class="nav-tab" onclick="switchTab('robux')">💎 Robux</div>
-    <div class="nav-tab" onclick="switchTab('redfinger')">📱 Redfinger</div>
-    <div class="nav-tab" onclick="switchTab('script')">📜 Script Hub</div>
+    <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot Service</div>
+    <div class="nav-tab" onclick="switchTab('key')">🔑 Script Key</div>
   </div>
 
   <div class="content-area">
@@ -275,6 +272,11 @@
             <span class="price-tag">Request Chat</span>
           </div>
         </div>
+
+        <label class="checkbox-container">
+          <input type="checkbox" id="include-key-check" onchange="toggleScriptKey(this)">
+          <span>Include Automation Script Key (+₱15.00)</span>
+        </label>
       </div>
     </div>
 
@@ -295,174 +297,5 @@
             <span>7 Days Key</span>
             <span class="price-tag">₱50.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption('key', 150, 'Lifetime Key VIP Access')">
-            <span>Lifetime VIP Access</span>
-            <span class="price-tag">₱150.00</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ROBUX SERVICE TAB -->
-    <div id="tab-robux" style="display:none;">
-      <div class="card">
-        <div class="card-title"><i class="fa-solid fa-coins" style="color:#f5c400;"></i> Robux Packages</div>
-        <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption('robux', 60, '100 Robux')">
-            <span>100 Robux</span>
-            <span class="price-tag">₱60.00</span>
-          </div>
-          <div class="option-btn" onclick="selectOption('robux', 280, '500 Robux')">
-            <span>500 Robux</span>
-            <span class="price-tag">₱280.00</span>
-          </div>
-          <div class="option-btn" onclick="selectOption('robux', 550, '1,000 Robux')">
-            <span>1,000 Robux</span>
-            <span class="price-tag">₱550.00</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- REDFINGER CLOUD TAB -->
-    <div id="tab-redfinger" style="display:none;">
-      <div class="card">
-        <div class="card-title"><i class="fa-solid fa-mobile-screen-button" style="color:#f5c400;"></i> Redfinger Cloud Phone Rental</div>
-        <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption('redfinger', 35, 'Redfinger 1 Day Access Code')">
-            <span>1 Day Operational Code</span>
-            <span class="price-tag">₱35.00</span>
-          </div>
-          <div class="option-btn" onclick="selectOption('redfinger', 180, 'Redfinger 7 Days Access Code')">
-            <span>7 Days Operational Code</span>
-            <span class="price-tag">₱180.00</span>
-          </div>
-          <div class="option-btn" onclick="selectOption('redfinger', 650, 'Redfinger 30 Days Monthly Rental')">
-            <span>30 Days Monthly Rental</span>
-            <span class="price-tag">₱650.00</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SCRIPT HUB TAB -->
-    <div id="tab-script" style="display:none;">
-      <div class="card">
-        <div class="card-title"><i class="fa-solid fa-code" style="color:#f5c400;"></i> Script Zone Hub Access</div>
-        <p style="font-size: 13px; color:#a0a6b8; margin-bottom: 12px;">Get exclusive premium scripts & auto-farm tools tailored for mobile execution.</p>
-        <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption('script', 30, 'Script Zone Hub - Basic Script')">
-            <span>Basic Auto-Farm Script</span>
-            <span class="price-tag">₱30.00</span>
-          </div>
-          <div class="option-btn" onclick="selectOption('script', 80, 'Script Zone Hub - Full Suite')">
-            <span>Full Automation Suite</span>
-            <span class="price-tag">₱80.00</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ITEM DETAILS & COMPUTATION -->
-    <div class="card" id="payment-summary-card">
-      <div class="card-title"><i class="fa-solid fa-receipt" style="color:#f5c400;"></i> Order Summary</div>
-      
-      <div style="margin-bottom: 12px;">
-        <label style="font-size: 12px; color:#a0a6b8; display:block; margin-bottom:4px;">Item / Account / Details to Buy:</label>
-        <input type="text" id="item-details" placeholder="e.g. Pet name, Account ID, or Specific Request">
-      </div>
-
-      <div class="summary-row">
-        <span>Selected Service:</span>
-        <span id="selected-name" style="color:#fff; font-weight:600;">1 Day Pilot</span>
-      </div>
-      <div class="summary-row">
-        <span>Base Price:</span>
-        <span id="base-price">₱50.00</span>
-      </div>
-      <div class="summary-row">
-        <span>Service Charge / Fee:</span>
-        <span>₱5.00</span>
-      </div>
-      <div class="summary-row total">
-        <span>Total Amount:</span>
-        <span id="total-price" style="color:#f5c400;">₱55.00</span>
-      </div>
-
-      <div class="social-grid">
-        <a href="javascript:void(0);" onclick="submitOrder()" class="chat-btn">
-          <i class="fa-brands fa-facebook-messenger"></i> Send Order via Messenger
-        </a>
-      </div>
-
-      <div class="badge-bar">
-        <div class="badge-item"><i class="fa-solid fa-shield-halved" style="color:#f5c400;"></i> 100% Secure</div>
-        <div class="badge-item"><i class="fa-solid fa-bolt" style="color:#f5c400;"></i> Fast Process</div>
-        <div class="badge-item"><i class="fa-solid fa-headset" style="color:#f5c400;"></i> MM Service</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  let currentService = 'pilot';
-  let selectedPrice = 50;
-  let selectedName = '1 Day Pilot';
-  const fee = 5;
-
-  function switchTab(tab) {
-    currentService = tab;
-    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('[id^="tab-"]').forEach(d => d.style.display = 'none');
-    
-    const tabIndexMap = {
-      'pilot': 0,
-      'key': 1,
-      'robux': 2,
-      'redfinger': 3,
-      'script': 4
-    };
-
-    document.querySelectorAll('.nav-tab')[tabIndexMap[tab]].classList.add('active');
-    document.getElementById(`tab-${tab}`).style.display = 'block';
-    
-    if (tab === 'pilot') {
-      selectOption('pilot', 50, '1 Day Pilot');
-    } else if (tab === 'key') {
-      selectOption('key', 10, '1 Day Key Access');
-    } else if (tab === 'robux') {
-      selectOption('robux', 60, '100 Robux');
-    } else if (tab === 'redfinger') {
-      selectOption('redfinger', 35, 'Redfinger 1 Day Access Code');
-    } else if (tab === 'script') {
-      selectOption('script', 30, 'Script Zone Hub - Basic Script');
-    }
-  }
-
-  function selectOption(tab, price, name) {
-    selectedPrice = price;
-    selectedName = name;
-    
-    const tabEl = document.getElementById(`tab-${tab}`);
-    tabEl.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
-    if(event && event.currentTarget) {
-      event.currentTarget.classList.add('active');
-    } else {
-      tabEl.querySelector('.option-btn').classList.add('active');
-    }
-
-    document.getElementById('selected-name').innerText = name;
-    document.getElementById('base-price').innerText = price > 0 ? `₱${price}.00` : 'Custom';
-    document.getElementById('total-price').innerText = price > 0 ? `₱${price + fee}.00` : 'Inquire Chat';
-  }
-
-  function submitOrder() {
-    const details = document.getElementById('item-details').value || 'None specified';
-    const total = selectedPrice > 0 ? `₱${selectedPrice + fee}.00` : 'Inquire Chat';
-    const msg = `Hello Boss Cedric! I want to order:\n- Package: ${selectedName}\n- Item/Details: ${details}\n- Total: ${total}`;
-    window.open(`https://m.me/cedric.coros.2024?text=${encodeURIComponent(msg)}`, '_blank');
-  }
-</script>
-</body>
-              </html>
-              
+          <div class="option-btn" onclick="selectOption('key', 150, 'Lifetime Key VIP Access')
+            
