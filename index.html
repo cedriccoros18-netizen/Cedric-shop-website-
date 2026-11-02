@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEDRIC STORE | Gaming Services</title>
+  <title>CEDRIC STORE | Cloud Phone & Gaming Services</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -211,7 +211,7 @@
       cursor: pointer;
       margin-top: 10px;
     }
-    input[type="text"] {
+    input[type="text"], input[type="email"] {
       width: 100%;
       padding: 12px;
       background: #111217;
@@ -219,6 +219,7 @@
       border-radius: 8px;
       color: #fff;
       margin-top: 6px;
+      margin-bottom: 10px;
       outline: none;
     }
   </style>
@@ -236,7 +237,8 @@
 
   <!-- NAVIGATION TABS -->
   <div class="nav-tabs">
-    <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot Service</div>
+    <div class="nav-tab active" onclick="switchTab('cloud')">📱 VS Cloud Phone</div>
+    <div class="nav-tab" onclick="switchTab('pilot')">🕹️ Pilot Service</div>
     <div class="nav-tab" onclick="switchTab('key')">🔑 Script Key</div>
   </div>
 
@@ -245,15 +247,44 @@
     <!-- ANNOUNCEMENT BANNER -->
     <div class="banner-announcement">
       <i class="fa-solid fa-shield-halved"></i>
-      <span>Account Seller, MM Service & Fast Delivery!</span>
+      <span>Fast Delivery via Gmail Account Transfer!</span>
+    </div>
+
+    <!-- CLOUD PHONE TAB -->
+    <div id="tab-cloud">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-mobile-screen-button" style="color:#f5c400;"></i> VS Phone Packages (Gmail Transfer)</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption(this, 50, 'Cloud Phone (1 Day)')">
+            <span>1 Day Access</span>
+            <span class="price-tag">₱50.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 30, 'Cloud Phone (3 Days - Promo)')">
+            <span>3 Days Access (Promo)</span>
+            <span class="price-tag">₱30.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 110, 'Cloud Phone (7 Days)')">
+            <span>7 Days Access</span>
+            <span class="price-tag">₱110.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 290, 'Cloud Phone (30 Days)')">
+            <span>30 Days (1 Month)</span>
+            <span class="price-tag">₱290.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 780, 'Cloud Phone (90 Days)')">
+            <span>90 Days (3 Months)</span>
+            <span class="price-tag">₱780.00</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- PILOT SERVICE TAB -->
-    <div id="tab-pilot">
+    <div id="tab-pilot" style="display:none;">
       <div class="card">
         <div class="card-title"><i class="fa-solid fa-gamepad" style="color:#f5c400;"></i> Select Pilot Package</div>
         <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption(this, 50, '1 Day Pilot')">
+          <div class="option-btn" onclick="selectOption(this, 50, '1 Day Pilot')">
             <span>1 Day Pilot</span>
             <span class="price-tag">₱50.00</span>
           </div>
@@ -265,13 +296,8 @@
             <span>7 Days Pilot (Weekly)</span>
             <span class="price-tag">₱200.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 0, 'Unlimited Egg (Divine & Eternal Request Only)')">
-            <span>Unlimited Egg (Divine & Eternal Request Only)</span>
-            <span class="price-tag">Request Chat</span>
-          </div>
         </div>
 
-        <!-- SCRIPT KEY ADDON CHECKBOX -->
         <label class="checkbox-container">
           <input type="checkbox" id="addon-key" onchange="toggleAddon()">
           <span style="font-size: 13px;">Include Automation Script Key (+₱15.00)</span>
@@ -284,7 +310,7 @@
       <div class="card">
         <div class="card-title"><i class="fa-solid fa-key" style="color:#f5c400;"></i> Select Script Key</div>
         <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption(this, 15, 'Automation Script Key')">
+          <div class="option-btn" onclick="selectOption(this, 15, 'Automation Script Key')">
             <span>Automation Script Key</span>
             <span class="price-tag">₱15.00</span>
           </div>
@@ -297,7 +323,7 @@
       <div class="card-title"><i class="fa-solid fa-receipt" style="color:#f5c400;"></i> Order Summary</div>
       <div class="summary-row">
         <span>Selected Service:</span>
-        <span id="selected-name" style="color:#fff; font-weight:600;">1 Day Pilot</span>
+        <span id="selected-name" style="color:#fff; font-weight:600;">Cloud Phone (1 Day)</span>
       </div>
       <div class="summary-row">
         <span>Base Price:</span>
@@ -307,15 +333,23 @@
         <span>Script Key Add-on:</span>
         <span style="color:#f5c400;">₱15.00</span>
       </div>
+      <div class="summary-row">
+        <span>Service Fee / Charge:</span>
+        <span style="color:#f5c400;">₱5.00</span>
+      </div>
       <div class="summary-row total">
         <span>Total Amount:</span>
-        <span id="total-price" style="color:#f5c400;">₱50.00</span>
+        <span id="total-price" style="color:#f5c400;">₱55.00</span>
       </div>
     </div>
 
     <!-- GCASH & MESSENGER SECTION -->
     <div class="card" id="gcash-card">
-      <div class="card-title"><i class="fa-solid fa-wallet" style="color:#005ce6;"></i> Payment & Order Confirmation</div>
+      <div class="card-title"><i class="fa-solid fa-wallet" style="color:#005ce6;"></i> Account & Payment Setup</div>
+      
+      <label style="font-size:12px; color:#a0a6b8;">Target Gmail (Para sa Transfer ng VS Device):</label>
+      <input type="email" id="target-gmail" placeholder="halimbawa: customer@gmail.com">
+
       <div class="gcash-box">
         <div style="font-size: 12px; opacity:0.8;">GCash Payment Details</div>
         <div style="font-size:16px; font-weight:700; margin-top:4px;">
@@ -337,22 +371,17 @@
 
 <script>
   let selectedPrice = 50;
-  let selectedName = '1 Day Pilot';
+  let selectedName = 'Cloud Phone (1 Day)';
   let hasAddon = false;
   const addonPrice = 15;
+  const chargeFee = 5; // Fixed ₱5.00 service fee sa lahat ng order
   const username = 'cedric.coros.2024';
 
   function updateSummary() {
-    let total = selectedPrice + (hasAddon ? addonPrice : 0);
-    
+    let total = selectedPrice + (hasAddon ? addonPrice : 0) + chargeFee;
     document.getElementById('selected-name').innerText = selectedName;
-    document.getElementById('base-price').innerText = selectedPrice > 0 ? `₱${selectedPrice}.00` : 'Request Chat';
-    
-    if (selectedPrice > 0) {
-      document.getElementById('total-price').innerText = `₱${total}.00`;
-    } else {
-      document.getElementById('total-price').innerText = hasAddon ? `₱${addonPrice}.00 (Request Chat)` : 'Request Chat';
-    }
+    document.getElementById('base-price').innerText = `₱${selectedPrice}.00`;
+    document.getElementById('total-price').innerText = `₱${total}.00`;
   }
 
   function switchTab(tab) {
@@ -364,20 +393,19 @@
     if (checkbox) checkbox.checked = false;
     document.getElementById('addon-row').style.display = 'none';
 
-    if (tab === 'pilot') {
+    if (tab === 'cloud') {
       document.querySelectorAll('.nav-tab')[0].classList.add('active');
+      document.getElementById('tab-cloud').style.display = 'block';
+      const firstOpt = document.querySelector('#tab-cloud .option-btn');
+      selectOption(firstOpt, 50, 'Cloud Phone (1 Day)');
+    } else if (tab === 'pilot') {
+      document.querySelectorAll('.nav-tab')[1].classList.add('active');
       document.getElementById('tab-pilot').style.display = 'block';
-      document.getElementById('payment-summary-card').style.display = 'block';
-      document.getElementById('gcash-card').style.display = 'block';
-      
       const firstOpt = document.querySelector('#tab-pilot .option-btn');
       selectOption(firstOpt, 50, '1 Day Pilot');
     } else if (tab === 'key') {
-      document.querySelectorAll('.nav-tab')[1].classList.add('active');
+      document.querySelectorAll('.nav-tab')[2].classList.add('active');
       document.getElementById('tab-key').style.display = 'block';
-      document.getElementById('payment-summary-card').style.display = 'block';
-      document.getElementById('gcash-card').style.display = 'block';
-      
       const firstOpt = document.querySelector('#tab-key .option-btn');
       selectOption(firstOpt, 15, 'Automation Script Key');
     }
@@ -402,21 +430,25 @@
   }
 
   function submitOrder() {
-    let total = selectedPrice > 0 ? `₱${selectedPrice + (hasAddon ? addonPrice : 0)}.00` : 'Request Chat';
-    if (selectedPrice === 0 && hasAddon) total = `₱${addonPrice}.00 (Request Chat)`;
-
+    let totalVal = selectedPrice + (hasAddon ? addonPrice : 0) + chargeFee;
+    let total = `₱${totalVal}.00`;
     let addonText = hasAddon ? " + Automation Script Key" : "";
+    let targetGmail = document.getElementById('target-gmail').value.trim();
     let refNum = document.getElementById('ref-num').value.trim();
     
-    let message = `Hello Boss! Gusto ko pong umorder:\n\n• Service: ${selectedName}${addonText}\n• Total: ${total}`;
+    let message = `Hello Boss! Gusto ko pong umorder:\n\n• Service: ${selectedName}${addonText}\n• Service Fee: ₱5.00\n• Total: ${total}`;
+    
+    if (targetGmail) {
+      message += `\n• Target Gmail: ${targetGmail}`;
+    }
     if (refNum) {
       message += `\n• GCash Ref No: ${refNum}`;
     }
     
-    // Gagamitin ang Facebook Messenger URL scheme para madala agad ang message
     let messengerUrl = `https://m.me/${username}?text=` + encodeURIComponent(message);
     window.open(messengerUrl, '_blank');
   }
 </script>
 </body>
-</html>
+  </html>
+  
