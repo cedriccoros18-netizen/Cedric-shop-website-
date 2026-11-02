@@ -65,27 +65,227 @@
       color: #fff;
       letter-spacing: 0.5px;
     }
+    .content {
+      padding: 16px;
+      flex: 1;
+    }
     .banner-announcement {
       background: rgba(245, 196, 0, 0.1);
       border: 1px solid rgba(245, 196, 0, 0.3);
       color: #f5c400;
-      padding: 8px 12px;
+      padding: 10px 12px;
       font-size: 12px;
       font-weight: 600;
-      border-radius: 6px;
-      margin-bottom: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
-    .pilot-features {
-      background: rgba(0, 132, 255, 0.08);
-      border: 1px solid rgba(0, 132, 255, 0.25);
-      border-radius: 8px;
-      padding: 10px 12px;
-      margin-bottom: 12px;
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #a0a5b5;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      margin-top: 20px;
     }
-    .pilot-features-title {
+    .service-card {
+      background: #16181f;
+      border: 1px solid #22252e;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s;
+    }
+    .service-card:hover {
+      border-color: #f5c400;
+    }
+    .service-info h3 {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .service-info p {
       font-size: 12px;
-      font
+      color: #8b92a5;
+    }
+    .service-price {
+      font-size: 16px;
+      font-weight: 800;
+      color: #f5c400;
+    }
+    .badge-tag {
+      background: #f5c400;
+      color: #111217;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .summary-box {
+      background: #16181f;
+      border: 1px dashed #f5c400;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #b0b5c0;
+    }
+    .summary-row.total {
+      font-weight: 800;
+      color: #fff;
+      font-size: 16px;
+      border-top: 1px solid #22252e;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: #0084ff;
+      color: #fff;
+      text-align: center;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 132, 255, 0.25);
+    }
+    .discord-btn {
+      background: #5865F2;
+      box-shadow: 0 4px 12px rgba(88, 101, 242, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-brand">
+        <div class="logo-box">C</div>
+        <div class="brand-title">CEDRIC STORE</div>
+      </div>
+      <div style="font-size: 12px; color: #0084ff; font-weight: 700;">
+        <i class="fa-solid fa-circle" style="font-size: 8px; color: #22c55e;"></i> ONLINE
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
       
+      <!-- Announcement Banner -->
+      <div class="banner-announcement">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>Note: May kasamang <strong>+₱5 GCash Cash-out Fee</strong> sa lahat ng order.</span>
+      </div>
+
+      <!-- VSPhone Cloud Phone Services -->
+      <div class="section-title">☁️ VSPhone Cloud Phone Rental</div>
+
+      <div class="service-card">
+        <div class="service-info">
+          <h3>1 Day Rental</h3>
+          <p>24-Hour Full Cloud Access</p>
+        </div>
+        <div class="service-price">₱45</div>
+      </div>
+
+      <div class="service-card" style="border-color: rgba(245, 196, 0, 0.4);">
+        <div class="service-info">
+          <h3>3 Days Rental <span class="badge-tag">PROMO</span></h3>
+          <p>Trial Package</p>
+        </div>
+        <div class="service-price">₱30</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-info">
+          <h3>7 Days Rental</h3>
+          <p>8 Days Access (+1 Day Bonus)</p>
+        </div>
+        <div class="service-price">₱110</div>
+      </div>
+
+      <div class="service-card" style="border-color: rgba(0, 132, 255, 0.4);">
+        <div class="service-info">
+          <h3>30 Days Rental <span class="badge-tag" style="background:#0084ff; color:#fff;">BEST SELLER</span></h3>
+          <p>Monthly Cloud Gaming</p>
+        </div>
+        <div class="service-price">₱290</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-info">
+          <h3>90 Days Rental</h3>
+          <p>Quarterly Access (+12 Days Bonus)</p>
+        </div>
+        <div class="service-price">₱780</div>
+      </div>
+
+      <!-- Roblox Pilot Services -->
+      <div class="section-title">🎮 Roblox Pilot Services</div>
+
+      <div class="service-card">
+        <div class="service-info">
+          <h3>1 Day Farming / Pilot</h3>
+          <p>Steal an Egg / Roblox Games</p>
+        </div>
+        <div class="service-price">₱50</div>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="section-title">📋 Order Summary & Breakdown</div>
+      <div class="summary-box">
+        <div class="summary-row">
+          <span>Sample Item (1 Day Pilot)</span>
+          <span>₱50.00</span>
+        </div>
+        <div class="summary-row">
+          <span>GCash Cash-out Fee (Tindahan)</span>
+          <span style="color: #f5c400;">+ ₱5.00</span>
+        </div>
+        <div class="summary-row total">
+          <span>TOTAL AMOUNT TO PAY</span>
+          <span style="color: #22c55e;">₱55.00</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="btn-group">
+        <a href="https://www.facebook.com/share/1Je9cpwiq8/" target="_blank" class="action-btn">
+          <i class="fa-brands fa-facebook-messenger"></i> Message Boss to Buy (FB)
+        </a>
+        <a href="https://discord.gg/m8JNceWx7" target="_blank" class="action-btn discord-btn">
+          <i class="fa-brands fa-discord"></i> Join Discord Community
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
