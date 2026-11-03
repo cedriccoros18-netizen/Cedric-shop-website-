@@ -238,7 +238,7 @@
 
   <!-- NAVIGATION TABS -->
   <div class="nav-tabs">
-    <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot</div>
+    <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot Account</div>
     <div class="nav-tab" onclick="switchTab('cloud')">📱 Cloud Phone</div>
     <div class="nav-tab" onclick="switchTab('key')">🔑 Script Key</div>
   </div>
@@ -256,20 +256,20 @@
       <div class="card">
         <div class="card-title"><i class="fa-solid fa-gamepad" style="color:#f5c400;"></i> Select Pilot Package</div>
         <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption(this, 50, '1 Day Pilot')">
+          <div class="option-btn active" onclick="selectOption(this, 60, '1 Day Pilot Service')">
             <span>1 Day Pilot</span>
-            <span class="price-tag">₱50.00</span>
+            <span class="price-tag">₱60.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 100, '3 Days Pilot')">
+          <div class="option-btn" onclick="selectOption(this, 120, '3 Days Pilot Service')">
             <span>3 Days Pilot</span>
-            <span class="price-tag">₱100.00</span>
+            <span class="price-tag">₱120.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 200, '7 Days Pilot (Weekly)')">
+          <div class="option-btn" onclick="selectOption(this, 250, '7 Days Pilot (Weekly)')">
             <span>7 Days Pilot (Weekly)</span>
-            <span class="price-tag">₱200.00</span>
+            <span class="price-tag">₱250.00</span>
           </div>
           <div class="option-btn" onclick="selectOption(this, 0, 'Unlimited Egg (Divine & Eternal Request Only)')">
-            <span>Unlimited Egg (Divine & Eternal Request Only)</span>
+            <span>Unlimited Egg (Divine & Eternal Request)</span>
             <span class="price-tag">Request Chat</span>
           </div>
         </div>
@@ -277,39 +277,39 @@
         <!-- SCRIPT KEY ADDON CHECKBOX -->
         <label class="checkbox-container">
           <input type="checkbox" id="addon-key" onchange="toggleAddon()">
-          <span style="font-size: 13px;">Include Automation Script Key (+₱15.00)</span>
+          <span style="font-size: 13px;">Include Automation Script Key (+₱20.00)</span>
         </label>
       </div>
     </div>
 
-    <!-- CLOUD PHONE TAB (SALIT PINGER) -->
+    <!-- CLOUD PHONE TAB (REDFINGER WITH PROFIT / MARGIN) -->
     <div id="tab-cloud" style="display:none;">
       <div class="card">
-        <div class="card-title"><i class="fa-solid fa-mobile-screen-button" style="color:#f5c400;"></i> Premium Real Device (Cloud Phone)</div>
+        <div class="card-title"><i class="fa-solid fa-mobile-screen-button" style="color:#f5c400;"></i> Redfinger Cloud Phone Access</div>
         <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption(this, 29.86, '1 Day Cloud Phone')">
-            <span>1 Day Access</span>
-            <span class="price-tag">₱29.86</span>
+          <div class="option-btn active" onclick="selectOption(this, 70, '3-Day Cloud Phone')">
+            <span>3-Day Access</span>
+            <span class="price-tag">₱70.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 5.97, '3 Days Cloud Phone (Promo)')">
-            <span>3 Days Access (Limit 1)</span>
-            <span class="price-tag">₱5.97</span>
+          <div class="option-btn" onclick="selectOption(this, 115, '7-Day (Special Offer Promo)')">
+            <span>7-Day Access (Special Offer)</span>
+            <span class="price-tag">₱115.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 71.67, '7 Days Cloud Phone (+1 Day Extra)')">
-            <span>7 Days Access (+1 Day Extra)</span>
-            <span class="price-tag">₱71.67</span>
+          <div class="option-btn" onclick="selectOption(this, 130, '7-Day (Regular Access)')">
+            <span>7-Day Access (Regular)</span>
+            <span class="price-tag">₱130.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 203.07, '30 Days Cloud Phone')">
-            <span>30 Days Access</span>
-            <span class="price-tag">₱203.07</span>
+          <div class="option-btn" onclick="selectOption(this, 330, '30-Day (1st Month Promo)')">
+            <span>30-Day Access (1st Month Promo)</span>
+            <span class="price-tag">₱330.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 573.37, '90 Days Cloud Phone (+12 Days Extra)')">
-            <span>90 Days Access (+12 Days Extra)</span>
-            <span class="price-tag">₱573.37</span>
+          <div class="option-btn" onclick="selectOption(this, 350, '30-Day (Regular Access)')">
+            <span>30-Day Access (Regular)</span>
+            <span class="price-tag">₱350.00</span>
           </div>
-          <div class="option-btn" onclick="selectOption(this, 2209.27, '365 Days Cloud Phone (Annual)')">
-            <span>365 Days Access (1 Year)</span>
-            <span class="price-tag">₱2,209.27</span>
+          <div class="option-btn" onclick="selectOption(this, 900, '90-Day (3 Months Access)')">
+            <span>90-Day Access</span>
+            <span class="price-tag">₱900.00</span>
           </div>
         </div>
       </div>
@@ -320,9 +320,9 @@
       <div class="card">
         <div class="card-title"><i class="fa-solid fa-key" style="color:#f5c400;"></i> Select Script Key</div>
         <div class="option-grid">
-          <div class="option-btn active" onclick="selectOption(this, 15, 'Automation Script Key')">
+          <div class="option-btn active" onclick="selectOption(this, 20, 'Automation Script Key')">
             <span>Automation Script Key</span>
-            <span class="price-tag">₱15.00</span>
+            <span class="price-tag">₱20.00</span>
           </div>
         </div>
       </div>
@@ -333,15 +333,15 @@
       <div class="card-title"><i class="fa-solid fa-receipt" style="color:#f5c400;"></i> Order Summary</div>
       <div class="summary-row">
         <span>Selected Service:</span>
-        <span id="selected-name" style="color:#fff; font-weight:600;">1 Day Pilot</span>
+        <span id="selected-name" style="color:#fff; font-weight:600;">1 Day Pilot Service</span>
       </div>
       <div class="summary-row">
         <span>Base Price:</span>
-        <span id="base-price">₱50.00</span>
+        <span id="base-price">₱60.00</span>
       </div>
       <div class="summary-row" id="addon-row" style="display:none;">
         <span>Script Key Add-on:</span>
-        <span style="color:#f5c400;">₱15.00</span>
+        <span style="color:#f5c400;">₱20.00</span>
       </div>
       <div class="summary-row">
         <span>Service Fee:</span>
@@ -349,7 +349,7 @@
       </div>
       <div class="summary-row total">
         <span>Total Amount:</span>
-        <span id="total-price" style="color:#f5c400;">₱55.00</span>
+        <span id="total-price" style="color:#f5c400;">₱65.00</span>
       </div>
     </div>
 
@@ -376,10 +376,10 @@
 </div>
 
 <script>
-  let selectedPrice = 50;
-  let selectedName = '1 Day Pilot';
+  let selectedPrice = 60;
+  let selectedName = '1 Day Pilot Service';
   let hasAddon = false;
-  const addonPrice = 15;
+  const addonPrice = 20;
   const serviceFee = 5;
   const username = 'cedric.coros.2024';
 
@@ -409,17 +409,17 @@
       document.querySelectorAll('.nav-tab')[0].classList.add('active');
       document.getElementById('tab-pilot').style.display = 'block';
       const firstOpt = document.querySelector('#tab-pilot .option-btn');
-      selectOption(firstOpt, 50, '1 Day Pilot');
+      selectOption(firstOpt, 60, '1 Day Pilot Service');
     } else if (tab === 'cloud') {
       document.querySelectorAll('.nav-tab')[1].classList.add('active');
       document.getElementById('tab-cloud').style.display = 'block';
       const firstOpt = document.querySelector('#tab-cloud .option-btn');
-      selectOption(firstOpt, 29.86, '1 Day Cloud Phone');
+      selectOption(firstOpt, 70, '3-Day Cloud Phone');
     } else if (tab === 'key') {
       document.querySelectorAll('.nav-tab')[2].classList.add('active');
       document.getElementById('tab-key').style.display = 'block';
       const firstOpt = document.querySelector('#tab-key .option-btn');
-      selectOption(firstOpt, 15, 'Automation Script Key');
+      selectOption(firstOpt, 20, 'Automation Script Key');
     }
   }
 
@@ -458,5 +458,5 @@
   }
 </script>
 </body>
-            </html>
-            
+                                                                                                                                      </html>
+          
