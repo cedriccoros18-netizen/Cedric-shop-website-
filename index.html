@@ -80,4 +80,384 @@
     }
     .nav-tabs {
       display: flex;
-      background: #16181f
+      background: #16181f;
+      border-bottom: 1px solid #22252e;
+      padding: 0 4px;
+      overflow-x: auto;
+    }
+    .nav-tab {
+      flex: 1;
+      padding: 12px 6px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #8b92a5;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-tab.active {
+      color: #f5c400;
+      border-bottom-color: #f5c400;
+    }
+    .content-area {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card {
+      background-color: #1a1c24;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #2a2e3d;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .option-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option-btn {
+      background: #222530;
+      border: 1px solid #2f3445;
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .option-btn.active {
+      border-color: #f5c400;
+      background: rgba(245, 196, 0, 0.12);
+      box-shadow: 0 0 8px rgba(245, 196, 0, 0.2);
+    }
+    .price-tag {
+      font-weight: 700;
+      color: #f5c400;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      padding: 10px;
+      background: #111217;
+      border-radius: 8px;
+      border: 1px solid #2a2e3d;
+      cursor: pointer;
+    }
+    .checkbox-container input {
+      width: auto;
+      cursor: pointer;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #a0a6b8;
+    }
+    .summary-row.total {
+      border-top: 1px dashed #2f3445;
+      padding-top: 10px;
+      margin-top: 6px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .gcash-box {
+      background: linear-gradient(135deg, #005ce6, #003b99);
+      border-radius: 10px;
+      padding: 14px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .chat-btn {
+      background-color: #0084ff;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .btn-submit {
+      background: #f5c400;
+      color: #111217;
+      border: none;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      background: #111217;
+      border: 1px solid #2f3445;
+      border-radius: 8px;
+      color: #fff;
+      margin-top: 6px;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="mobile-container">
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-brand">
+      <div class="logo-box">C</div>
+      <div class="brand-title">CEDRIC STORE</div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION TABS -->
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="switchTab('pilot')">🕹️ Pilot Account</div>
+    <div class="nav-tab" onclick="switchTab('cloud')">📱 Cloud Phone</div>
+    <div class="nav-tab" onclick="switchTab('key')">🔑 Script Key</div>
+  </div>
+
+  <div class="content-area">
+
+    <!-- ANNOUNCEMENT BANNER -->
+    <div class="banner-announcement">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Account Seller, MM Service & Fast Delivery!</span>
+    </div>
+
+    <!-- PILOT SERVICE TAB -->
+    <div id="tab-pilot">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-gamepad" style="color:#f5c400;"></i> Select Pilot Package</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption(this, 60, '1 Day Pilot Service')">
+            <span>1 Day Pilot</span>
+            <span class="price-tag">₱60.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 120, '3 Days Pilot Service')">
+            <span>3 Days Pilot</span>
+            <span class="price-tag">₱120.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 250, '7 Days Pilot (Weekly)')">
+            <span>7 Days Pilot (Weekly)</span>
+            <span class="price-tag">₱250.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 0, 'Unlimited Egg (Divine & Eternal Request Only)')">
+            <span>Unlimited Egg (Divine & Eternal Request)</span>
+            <span class="price-tag">Request Chat</span>
+          </div>
+        </div>
+
+        <!-- SCRIPT KEY ADDON CHECKBOX -->
+        <label class="checkbox-container">
+          <input type="checkbox" id="addon-key" onchange="toggleAddon()">
+          <span style="font-size: 13px;">Include Automation Script Key (+₱20.00)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- CLOUD PHONE TAB (REDFINGER WITH PROFIT / MARGIN) -->
+    <div id="tab-cloud" style="display:none;">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-mobile-screen-button" style="color:#f5c400;"></i> Redfinger Cloud Phone Access</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption(this, 70, '3-Day Cloud Phone')">
+            <span>3-Day Access</span>
+            <span class="price-tag">₱70.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 115, '7-Day (Special Offer Promo)')">
+            <span>7-Day Access (Special Offer)</span>
+            <span class="price-tag">₱115.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 130, '7-Day (Regular Access)')">
+            <span>7-Day Access (Regular)</span>
+            <span class="price-tag">₱130.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 330, '30-Day (1st Month Promo)')">
+            <span>30-Day Access (1st Month Promo)</span>
+            <span class="price-tag">₱330.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 350, '30-Day (Regular Access)')">
+            <span>30-Day Access (Regular)</span>
+            <span class="price-tag">₱350.00</span>
+          </div>
+          <div class="option-btn" onclick="selectOption(this, 900, '90-Day (3 Months Access)')">
+            <span>90-Day Access</span>
+            <span class="price-tag">₱900.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT KEY TAB -->
+    <div id="tab-key" style="display:none;">
+      <div class="card">
+        <div class="card-title"><i class="fa-solid fa-key" style="color:#f5c400;"></i> Select Script Key</div>
+        <div class="option-grid">
+          <div class="option-btn active" onclick="selectOption(this, 20, 'Automation Script Key')">
+            <span>Automation Script Key</span>
+            <span class="price-tag">₱20.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDER SUMMARY & COMPUTATION -->
+    <div class="card" id="payment-summary-card">
+      <div class="card-title"><i class="fa-solid fa-receipt" style="color:#f5c400;"></i> Order Summary</div>
+      <div class="summary-row">
+        <span>Selected Service:</span>
+        <span id="selected-name" style="color:#fff; font-weight:600;">1 Day Pilot Service</span>
+      </div>
+      <div class="summary-row">
+        <span>Base Price:</span>
+        <span id="base-price">₱60.00</span>
+      </div>
+      <div class="summary-row" id="addon-row" style="display:none;">
+        <span>Script Key Add-on:</span>
+        <span style="color:#f5c400;">₱20.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Service Fee:</span>
+        <span style="color:#f5c400;">₱5.00</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total Amount:</span>
+        <span id="total-price" style="color:#f5c400;">₱65.00</span>
+      </div>
+    </div>
+
+    <!-- GCASH & MESSENGER SECTION -->
+    <div class="card" id="gcash-card">
+      <div class="card-title"><i class="fa-solid fa-wallet" style="color:#005ce6;"></i> Payment & Order Confirmation</div>
+      <div class="gcash-box">
+        <div style="font-size: 12px; opacity:0.8;">GCash Payment Details</div>
+        <div style="font-size:16px; font-weight:700; margin-top:4px;">
+          Ask Seller via Messenger
+        </div>
+      </div>
+      
+      <label style="font-size:12px; color:#a0a6b8;">GCash Reference Number (Optional):</label>
+      <input type="text" id="ref-num" placeholder="Enter Ref No. if paid">
+
+      <button class="btn-submit" onclick="submitOrder()">Confirm & Send Order via Messenger</button>
+      <a href="https://m.me/cedric.coros.2024" target="_blank" class="chat-btn">
+        <i class="fa-brands fa-facebook-messenger"></i> Direct Private Chat
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let selectedPrice = 60;
+  let selectedName = '1 Day Pilot Service';
+  let hasAddon = false;
+  const addonPrice = 20;
+  const serviceFee = 5;
+  const username = 'cedric.coros.2024';
+
+  function updateSummary() {
+    let total = selectedPrice > 0 ? (selectedPrice + (hasAddon ? addonPrice : 0) + serviceFee) : 0;
+    
+    document.getElementById('selected-name').innerText = selectedName;
+    document.getElementById('base-price').innerText = selectedPrice > 0 ? `₱${selectedPrice.toFixed(2)}` : 'Request Chat';
+    
+    if (selectedPrice > 0) {
+      document.getElementById('total-price').innerText = `₱${total.toFixed(2)}`;
+    } else {
+      document.getElementById('total-price').innerText = hasAddon ? `₱${(addonPrice + serviceFee).toFixed(2)} (Request Chat)` : 'Request Chat';
+    }
+  }
+
+  function switchTab(tab) {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('[id^="tab-"]').forEach(d => d.style.display = 'none');
+    
+    hasAddon = false;
+    const checkbox = document.getElementById('addon-key');
+    if (checkbox) checkbox.checked = false;
+    document.getElementById('addon-row').style.display = 'none';
+
+    if (tab === 'pilot') {
+      document.querySelectorAll('.nav-tab')[0].classList.add('active');
+      document.getElementById('tab-pilot').style.display = 'block';
+      const firstOpt = document.querySelector('#tab-pilot .option-btn');
+      selectOption(firstOpt, 60, '1 Day Pilot Service');
+    } else if (tab === 'cloud') {
+      document.querySelectorAll('.nav-tab')[1].classList.add('active');
+      document.getElementById('tab-cloud').style.display = 'block';
+      const firstOpt = document.querySelector('#tab-cloud .option-btn');
+      selectOption(firstOpt, 70, '3-Day Cloud Phone');
+    } else if (tab === 'key') {
+      document.querySelectorAll('.nav-tab')[2].classList.add('active');
+      document.getElementById('tab-key').style.display = 'block';
+      const firstOpt = document.querySelector('#tab-key .option-btn');
+      selectOption(firstOpt, 20, 'Automation Script Key');
+    }
+  }
+
+  function selectOption(element, price, name) {
+    selectedPrice = price;
+    selectedName = name;
+    
+    const container = element.parentElement;
+    container.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+    element.classList.add('active');
+
+    updateSummary();
+  }
+
+  function toggleAddon() {
+    const checkbox = document.getElementById('addon-key');
+    hasAddon = checkbox.checked;
+    document.getElementById('addon-row').style.display = hasAddon ? 'flex' : 'none';
+    updateSummary();
+  }
+
+  function submitOrder() {
+    let total = selectedPrice > 0 ? `₱${(selectedPrice + (hasAddon ? addonPrice : 0) + serviceFee).toFixed(2)}` : 'Request Chat';
+    if (selectedPrice === 0 && hasAddon) total = `₱${(addonPrice + serviceFee).toFixed(2)} (Request Chat)`;
+
+    let addonText = hasAddon ? " + Automation Script Key" : "";
+    let refNum = document.getElementById('ref-num').value.trim();
+    
+    let message = `Hello Boss! Gusto ko pong umorder:\n\n• Service: ${selectedName}${addonText}\n• Service Fee: ₱5.00\n• Total: ${total}`;
+    if (refNum) {
+      message += `\n• GCash Ref No: ${refNum}`;
+    }
+    
+    let messengerUrl = `https://m.me/${username}?text=` + encodeURIComponent(message);
+    window.open(messengerUrl, '_blank');
+  }
+</script>
+</body>
+                                                                                                                                      </html>
+
+          
